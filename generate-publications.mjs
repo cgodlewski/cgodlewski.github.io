@@ -1,6 +1,10 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 
 const source = readFileSync('../Personal-Academic-Site/lib/publications.ts', 'utf8');
+const additionalCompanions = {
+  'Language and Private Debt Renegotiation, International Journal of Finance & Economics 30, 134-171.': 'https://cgodlewski.github.io/language-private-debt-renegotiation/',
+  'Macroprudential Policy and Net Interest Margins in European Banks (with M. Olszak, I. Kowalska and A. Paciorek), Journal of Financial Services Research, forthcoming.': 'https://cgodlewski.github.io/macroprudential-policy-net-interest-margins/',
+};
 const records = source.split(/\r?\n/).filter((line) => /\{ year: \d/.test(line) && line.includes("citation: '")).map((line) => {
   const year = line.match(/year: (\d+)/)[1];
   const remainder = line.split("citation: '")[1];
@@ -8,7 +12,7 @@ const records = source.split(/\r?\n/).filter((line) => /\{ year: \d/.test(line) 
     .map((marker) => remainder.indexOf(marker)).filter((index) => index >= 0)[0];
   const citation = remainder.slice(0, citationEnd);
   const doi = line.match(/doi: '([^']+)'/)?.[1];
-  const companion = line.match(/companion: '([^']+)'/)?.[1];
+  const companion = line.match(/companion: '([^']+)'/)?.[1] ?? additionalCompanions[citation];
   return { year, citation, doi, companion };
 });
 const books = [...source.matchAll(/^  '(.+)',$/gm)].map((m) => m[1]);
