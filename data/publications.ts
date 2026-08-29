@@ -40,7 +40,7 @@ export const publications: Publication[] = [
   { year: 2010, citation: 'Banking Environment and Loan Syndicate Structure: A Cross-Country Analysis, Applied Financial Economics 20, 637-648.', doi: 'https://doi.org/10.1080/09603100903459899' },
   { year: 2009, citation: 'Le traitement de l’information par les analystes crédit dans les banques, Revue du Financier 177, 51-59.' },
   { year: 2009, citation: 'L’organisation des syndicats bancaires en France. Taille, concentration et réputation, Finance, Contrôle, Stratégie 12, 37-63.' },
-  { year: 2009, citation: 'Collateral and Adverse Selection in Transition Countries (with L. Weill), Eastern European Economics 47, 23-40.', doi: 'https://doi.org/10.2753/EEE0012-8775470102' },
+  { year: 2009, citation: 'Collateral and Adverse Selection in Transition Countries (with L. Weill), Eastern European Economics 47, 29-40.', doi: 'https://doi.org/10.2753/EEE0012-8775470102' },
   { year: 2008, citation: 'Syndicated Loans in Emerging Markets (with L. Weill), Emerging Markets Review 9, 206-219.', doi: 'https://doi.org/10.1016/j.ememar.2008.04.001' },
   { year: 2008, citation: 'The Design of Bank Loan Syndicates in Emerging Markets Economies, IUP Journal of Financial Economics 6, 7-30.' },
   { year: 2008, citation: 'La cohérence des ratings avec la probabilité de défaillance des banques dans les pays émergents, Banque & Marchés 93, 34-43.' },
