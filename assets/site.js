@@ -9,8 +9,16 @@ function setLanguage(lang){
 
 function addConferenceLink(){
   const nav=document.querySelector('nav');
-  if(!nav || nav.querySelector('[href*="conferences"]')) return;
-  const archive=[...nav.querySelectorAll('a')].find(link=>link.getAttribute('href')?.includes('archives'));
+  if(!nav) return;
+  const labels={Home:['Home','Accueil'],Publications:['Publications','Publications'],Conferences:['Conferences','Conférences'],Archive:['Archive','Archives'],Links:['Links','Liens']};
+  const links=[...nav.querySelectorAll('a')];
+  links.forEach(link=>{
+    const label=link.dataset.en||link.textContent.trim();
+    if(!labels[label]) return;
+    [link.dataset.en,link.dataset.fr]=labels[label];
+  });
+  if(links.some(link=>link.dataset.en==='Conferences'||link.getAttribute('href')?.includes('conferences'))) return;
+  const archive=links.find(link=>link.dataset.en==='Archive'||link.getAttribute('href')?.includes('archives'));
   const link=document.createElement('a');
   link.href='../conferences/';
   link.dataset.en='Conferences';
