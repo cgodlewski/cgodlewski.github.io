@@ -113,6 +113,10 @@ h1, h2, h3 { font-family: 'STIX Two Text', 'Latin Modern Roman', 'CMU Serif', Ge
 .companion-list article p:not(.paper-meta) { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .companion-list > a { margin-top: 6px; color: var(--accent-dark); font-size: 12px; font-weight: 700; border-bottom: 1px solid currentColor; height: max-content; }
 
+@media (max-width: 900px) and (min-width: 761px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(190px, .55fr); gap: clamp(24px, 4vw, 50px); }
+}
+
 @media (max-width: 760px) {
   .site-header { grid-template-columns: 1fr auto; padding: 0 5vw; }
   .brand-name, nav { display: none; }
