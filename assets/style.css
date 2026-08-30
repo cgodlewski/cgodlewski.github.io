@@ -75,6 +75,22 @@ h1, h2, h3 { font-family: 'STIX Two Text', 'Latin Modern Roman', 'CMU Serif', Ge
 .conference-year ul { margin: 0; padding: 0; list-style: none; }
 .conference-year li { padding: 0 0 14px; color: #3f6078; font-size: 15px; line-height: 1.52; }
 .conference-year li:last-child { padding-bottom: 0; }
+.conference-map { padding: 66px 0 42px; border-bottom: 1px solid var(--line); }
+.map-intro { display: grid; grid-template-columns: .7fr 1.3fr; gap: 8vw; align-items: start; }
+.map-intro h2 { margin: 0; font-size: clamp(31px, 4vw, 52px); letter-spacing: -.04em; }
+.map-intro p:last-child { grid-column: 2; max-width: 620px; margin: -8px 0 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.map-controls { display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0 18px; }
+.map-filter { padding: 8px 11px; border: 1px solid var(--line); background: transparent; color: var(--accent-dark); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; }
+.map-filter.active, .map-filter:hover { border-color: var(--accent); background: var(--accent); color: var(--white); }
+.conference-map-canvas { height: min(560px, 62vh); min-height: 360px; border: 1px solid var(--line); background: var(--white); }
+.map-summary { margin: 13px 0 0; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.conference-popup { font-family: Arial, Helvetica, sans-serif; color: var(--ink); }
+.conference-popup strong { font-family: 'STIX Two Text', 'Latin Modern Roman', Georgia, serif; font-size: 20px; font-weight: 400; }
+.conference-popup p { margin: 4px 0 12px; color: var(--muted); font-size: 12px; }
+.conference-popup ul { max-height: 230px; margin: 0; padding-left: 16px; overflow: auto; }
+.conference-popup li { margin: 0 0 7px; font-size: 12px; line-height: 1.35; }
+.conference-popup li span { color: var(--accent); font-weight: 700; }
+.conference-popup em { color: var(--muted); font-style: normal; }
 .books { padding: 70px 0; border-top: 1px solid var(--line); }
 .books li { padding: 10px 0; color: #3f6078; line-height: 1.5; }
 
@@ -104,6 +120,9 @@ h1, h2, h3 { font-family: 'STIX Two Text', 'Latin Modern Roman', 'CMU Serif', Ge
   .publication-links { grid-column: 2; }
   .profile-grid, .archive-documents { grid-template-columns: 1fr; }
   .record, .conference-year { grid-template-columns: 58px 1fr; gap: 15px; }
+  .map-intro { grid-template-columns: 1fr; gap: 13px; }
+  .map-intro p:last-child { grid-column: auto; margin: 0; }
+  .conference-map-canvas { height: 390px; min-height: 0; }
   .publication-tools { align-items: flex-start; flex-direction: column; }
   .companion-list article { grid-template-columns: 1fr; gap: 16px; }
 }
