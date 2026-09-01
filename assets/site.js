@@ -28,19 +28,26 @@ function addConferenceLink(){
 }
 
 function setupArchiveAudio(){
+  const hero=document.querySelector('.hero');
   const trigger=document.querySelector('.hero-archive-trigger');
   const audio=document.querySelector('#hero-polonaise');
   const status=document.querySelector('.hero-audio-status');
   const pauseButton=document.querySelector('.hero-audio-stop');
-  if(!trigger||!audio||!status||!pauseButton) return;
+  if(!hero||!trigger||!audio||!status||!pauseButton) return;
   const sync=()=>{
     const playing=!audio.paused&&!audio.ended;
     trigger.setAttribute('aria-pressed',String(playing));
     status.hidden=!playing;
   };
-  trigger.addEventListener('click',()=>{
+  const toggle=()=>{
     if(audio.paused||audio.ended) audio.play().catch(()=>{});
     else audio.pause();
+  };
+  trigger.addEventListener('click',toggle);
+  hero.addEventListener('click',event=>{
+    if(event.target===trigger||event.target.closest('a,button')) return;
+    const area=trigger.getBoundingClientRect();
+    if(event.clientX>=area.left&&event.clientX<=area.right&&event.clientY>=area.top&&event.clientY<=area.bottom) toggle();
   });
   pauseButton.addEventListener('click',()=>audio.pause());
   audio.addEventListener('play',sync);
