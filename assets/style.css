@@ -36,10 +36,8 @@ nav a[aria-current=page], nav a:hover, .links a:hover { color: var(--accent); }
 .actions { display: flex; gap: 10px; margin-top: 35px; flex-wrap: wrap; }
 .hero-archive-credit { display: inline-block; margin-top: 24px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 10px; line-height: 1.35; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
 .hero-archive-credit:hover { color: var(--accent-dark); text-decoration-color: currentColor; }
-.hero-audio-status { display: flex; max-width: 640px; align-items: center; gap: 10px; margin-top: 14px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 1.45; }
-.hero-audio-status button, .hero-audio-status a { color: var(--accent-dark); font: 700 11px Arial, Helvetica, sans-serif; }
-.hero-audio-status button { padding: 0; border: 0; background: transparent; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
-.hero-audio-status a { white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+.hero-audio-status { display: inline-block; margin-top: 8px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 10px; line-height: 1.35; }
+.hero-audio-status[hidden] { display: none; }
 .button { display: inline-flex; gap: 26px; align-items: center; padding: 13px 16px; border: 1px solid var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; }
 .button.dark { background: var(--ink); color: var(--white); }
 .portrait { width: min(100%,285px); aspect-ratio: 386/675; justify-self: end; overflow: hidden; }

@@ -32,8 +32,7 @@ function setupArchiveAudio(){
   const trigger=document.querySelector('.hero-archive-trigger');
   const audio=document.querySelector('#hero-polonaise');
   const status=document.querySelector('.hero-audio-status');
-  const pauseButton=document.querySelector('.hero-audio-stop');
-  if(!hero||!trigger||!audio||!status||!pauseButton) return;
+  if(!hero||!trigger||!audio||!status) return;
   const sync=()=>{
     const playing=!audio.paused&&!audio.ended;
     trigger.setAttribute('aria-pressed',String(playing));
@@ -49,7 +48,6 @@ function setupArchiveAudio(){
     const area=trigger.getBoundingClientRect();
     if(event.clientX>=area.left&&event.clientX<=area.right&&event.clientY>=area.top&&event.clientY<=area.bottom) toggle();
   });
-  pauseButton.addEventListener('click',()=>audio.pause());
   audio.addEventListener('play',sync);
   audio.addEventListener('pause',sync);
   audio.addEventListener('ended',sync);
