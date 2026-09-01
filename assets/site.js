@@ -27,8 +27,30 @@ function addConferenceLink(){
   nav.insertBefore(link,archive||null);
 }
 
+function setupArchiveAudio(){
+  const trigger=document.querySelector('.hero-archive-trigger');
+  const audio=document.querySelector('#hero-polonaise');
+  const status=document.querySelector('.hero-audio-status');
+  const pauseButton=document.querySelector('.hero-audio-stop');
+  if(!trigger||!audio||!status||!pauseButton) return;
+  const sync=()=>{
+    const playing=!audio.paused&&!audio.ended;
+    trigger.setAttribute('aria-pressed',String(playing));
+    status.hidden=!playing;
+  };
+  trigger.addEventListener('click',()=>{
+    if(audio.paused||audio.ended) audio.play().catch(()=>{});
+    else audio.pause();
+  });
+  pauseButton.addEventListener('click',()=>audio.pause());
+  audio.addEventListener('play',sync);
+  audio.addEventListener('pause',sync);
+  audio.addEventListener('ended',sync);
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   addConferenceLink();
+  setupArchiveAudio();
   const lang=localStorage.getItem(langKey)||'en';
   document.querySelectorAll('.language-switch button').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
   setLanguage(lang);
