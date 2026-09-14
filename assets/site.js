@@ -3,6 +3,7 @@ const langKey='cjg-lang';
 function setLanguage(lang){
   document.documentElement.lang=lang;
   document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[lang]||el.dataset.en});
+  document.querySelectorAll('[data-en-alt]').forEach(el=>{el.alt=el.dataset[`${lang}Alt`]||el.dataset.enAlt});
   document.querySelectorAll('.language-switch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
   localStorage.setItem(langKey,lang);
 }
